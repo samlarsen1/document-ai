@@ -1,0 +1,50 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+
+        
+
+        
+        {
+            "name": "Attach to Chrome",
+            "port": 9222,
+            "request": "attach",
+            "type": "chrome",
+            "webRoot": "${workspaceFolder}"
+        },
+
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch Server",
+            "skipFiles": ["<node_internals>/**"],
+            "program": "${workspaceFolder}/editor/server.js",
+            "cwd": "${workspaceFolder}",
+            "env": {
+                "NODE_ENV": "development"
+            },
+            "console": "integratedTerminal"
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Launch Browser Preview",
+            "port": 9222,
+            "url": "http://localhost:3000",
+            "webRoot": "${workspaceFolder}/editor/server.js"
+        }
+    ],
+    "tasks": {
+        "version": "2.0.0",
+        "tasks": [
+            {
+                "label": "Start Live Server: Sam",
+                "type": "shell",
+                "script": "live-server --port=5500",
+                "problemMatcher": [
+
+                ]
+            }
+        ]
+    }
+}
